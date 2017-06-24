@@ -1,3 +1,102 @@
+/*============================================
+
+Nav Universal Styles
+
+============================================*/
+
+ .logged-in{
+
+    .desk-nav{
+padding-top:2rem;
+    }
+  }
+
+  .desk-nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:30%;
+    z-index:100;
+    @include mui-animation(slide(in,right));
+  animation-duration: .5s; 
+
+    .menu .active > a{
+      background:#000;
+
+    }
+
+    ul{
+      list-style-type:none;
+      margin:0;
+
+      li{
+        margin:.5rem 0;
+
+        a{
+          background-color:#000;
+          color:#fff;
+          width:100%;
+          max-width:300px;
+          padding:.5rem 1rem;
+          display:block;
+          font-family:$serif;
+          text-transform:uppercase;
+          letter-spacing:.15rem;
+        }
+
+        a:hover, .menu .active > a:hover{
+         // @include transition;
+          background-color:$blue;
+
+          display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+        }
+
+      }
+    }
+  }
+
+
+
+/*============================================
+
+Nav Desktop Styles
+
+============================================*/
+@media screen and (min-width: 63.9375em){
+
+ 
+  
+}
+
+/*============================================
+
+Content Tablet Styles
+
+============================================*/
+
+@media screen and (max-width: 63.9375em){
+
+  }
+
+/*============================================
+
+Nav Mobile Styles
+
+============================================*/
+
+@media screen and (max-width: 39.9375em) {
+
+}
+
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {

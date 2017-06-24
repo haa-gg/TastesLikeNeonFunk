@@ -4,29 +4,25 @@ Template Name: Front
 */
 get_header(); ?>
 
-<header class="front-hero" role="banner">
-	<div class="marketing">
-		<div class="tagline">
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
-			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
-		</div>
+<div class="desk-nav show-for-medium">
+	
+<?php wp_nav_menu(array('sort_column' => 'menu_order', 'container_class' => 'menu-header')); ?>
+	
+</div>
 
-		<div class="watch">
-			<section class="stargazers">
-				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
-			</section>
-			<section class="twitter">
-				<a href="https://twitter.com/olefredrik">@olefredrik</a>
-			</section>
-		</div>
-	</div>
+<div class="row hero-head">
 
-</header>
+<div class="column small-12">
 
-<?php do_action( 'foundationpress_before_content' ); ?>
+<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo.png" class="logo" alt="Glendon Gengel's Design and Development Work">
+
+</div>
+
+</div>
+
+<?php // do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-<section class="intro" role="main">
+<div class="row" role="main">
 	<div class="fp-intro">
 
 		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -56,48 +52,105 @@ get_header(); ?>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="section-divider">
-	<hr />
+<div class="row destination align-middle small-up-1 medium-up-1 large-up-3">
+
+<div class="column webdev">
+
+<div class="spec-wrap">
+
+<h3>Web Development</h3>
+
+<a href="web-development">
+
+	<?php 
+$args = array(
+    'posts_per_page' => 1,
+    'category__and' => array( 5, 3 )
+);
+
+$my_query = new WP_Query( $args );
+while( $my_query->have_posts() ):
+    $my_query->the_post();
+    //the_title();
+//the_post_thumbnail();
+$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+echo '<div class="feature" style="background: url('. $url.')"></div>';
+endwhile;
+
+wp_reset_postdata();
+	?>
+
+	</a>
+
+</div>
+
+</div>
+
+<div class="column webdesign">
+
+<div class="spec-wrap">
+
+<h3>Web Design</h3>
+
+<a href="web-design">
+
+<?php 
+$args = array(
+    'posts_per_page' => 1,
+    'category__and' => array( 5, 4 )
+);
+
+$my_query = new WP_Query( $args );
+while( $my_query->have_posts() ):
+    $my_query->the_post();
+    //the_title();
+//the_post_thumbnail();
+$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+echo '<div class="feature" style="background: url('. $url.')"></div>';
+endwhile;
+
+wp_reset_postdata();
+	?>
+
+	</a>
+
+</div>
+
 </div>
 
 
-<section class="benefits">
-	<header>
-		<h2>Build Foundation based sites, powered by WordPress</h2>
-		<h4>Foundation is the professional choice for designers, developers and teams. <br /> WordPress is by far, <a href="http://trends.builtwith.com/cms">the world's most popular CMS</a> (currently powering 38% of the web).</h4>
-	</header>
+<div class="column graphicdesign">
 
-	<div class="semantic">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/semantic.svg" alt="semantic">
-		<h3>Semantic</h3>
-		<p>Everything is semantic. You can have the cleanest markup without sacrificing the utility and speed of Foundation.</p>
-	</div>
+<div class="spec-wrap">
 
-	<div class="responsive">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/responsive.svg" alt="responsive">
-		<h3>Responsive</h3>
-		<p>You can build for small devices first. Then, as devices get larger and larger, layer in more complexity for a complete responsive design.</p>
+<h3>Graphic Design</h3>
 
-	</div>
+<a href="graphic-design">
+	
+<?php 
+$args = array(
+    'posts_per_page' => 1,
+    'category__and' => array( 5, 6 )
+);
 
-	<div class="customizable">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/customizable.svg" alt="customizable">
-		<h3>Customizable</h3>
-		<p>You can customize your build to include or remove certain elements, as well as define the size of columns, colors, font size and more.</p>
+$my_query = new WP_Query( $args );
+while( $my_query->have_posts() ):
+    $my_query->the_post();
+    //the_title();
+//the_post_thumbnail();
+$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+echo '<div class="feature" style="background: url('. $url.')"></div>';
+endwhile;
 
-	</div>
+wp_reset_postdata();
+	?>
+</a>
 
-	<div class="professional">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/demo/professional.svg" alt="professional">
-		<h3>Professional</h3>
-		<p>Millions of designers and developers depend on Foundation. We have business support, training and consulting to help grow your product or service.</p>
-	</div>
+</div>
 
-	<div class="why-foundation">
-		<a href="/kitchen-sink">See what's in Foundation out of the box →</a>
-	</div>
+</div>
 
-</section>
+</div>
 
 
 

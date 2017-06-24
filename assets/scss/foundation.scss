@@ -74,11 +74,47 @@
   Add your scss files below to structure your project styles
 */
 
-// Modules
-@import "modules/navigation";
-@import "modules/content";
-@import "modules/footer";
-@import "modules/editor-style";
+//Mixins and constants
+@font-face {
+     font-family: 'bauhaus';
+    src: url('../../bauhaus-webfont.eot');
+    src: url('../../bauhaus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../bauhaus-webfont.woff2') format('woff2'),
+         url('../../bauhaus-webfont.woff') format('woff'),
+         url('../../bauhaus-webfont.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,400,700,900');
+
+$serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+
+$header: 'bauhaus';
+
+$subheader: 'Titillium Web', sans-serif;
+
+$blue: #259ac3;
+
+
+@mixin transition{ 
+  -webkit-transition: all 200ms ease-out 200ms;
+  -moz-transition: all 200ms ease-out 200ms;
+  -o-transition: all 200ms ease-out 200ms;
+  transition: all 200ms ease-out 200ms;
+}
+
+
+@mixin transition-quick{ 
+  -webkit-transition: all 100ms ease-out 100ms;
+  -moz-transition: all 100ms ease-out 100ms;
+  -o-transition: all 100ms ease-out 100ms;
+  transition: all 100ms ease-out 100ms;
+}
+
+// Templates
+@import "templates/front";
+@import "templates/kitchen-sink";
+
+
 
 // Components
 @import "components/buttons";
@@ -87,6 +123,8 @@
 @import "components/dividers";
 @import "components/links";
 
-// Templates
-@import "templates/front";
-@import "templates/kitchen-sink";
+// Modules
+@import "modules/navigation";
+@import "modules/footer";
+@import "modules/editor-style";
+@import "modules/content";

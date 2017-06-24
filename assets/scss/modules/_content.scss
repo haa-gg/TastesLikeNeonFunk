@@ -1,3 +1,157 @@
+/*============================================
+
+Content Universal Styles
+
+============================================*/
+
+body{
+  font-family:$serif;
+}
+
+ 
+h1{
+  font-family: $header;
+      font-weight: 900;
+}
+
+h2{
+  font-family: $subheader;
+  font-variant:small-caps;
+  font-weight: 400;
+}
+
+img{
+  height:100%;
+  display:block;
+}
+
+.destination{
+  position:relative;
+  text-align:center;
+
+  a{ 
+    background-color:rgba(0,0,0,0.3);
+    z-index:150;
+  }
+
+  .feature{
+    padding: 10rem 0;
+    background-size: cover!important;
+    background-position: center!important;
+    opacity:0.5;
+    @include transition-quick;
+  }
+
+  .feature:hover{
+    opacity: 1;
+  }
+
+
+  }
+ 
+
+.spec-wrap{
+    position: relative;
+  background-color:rgba(0,0,0,1); 
+  color:#000;
+   @include transition-quick;
+
+  h3{
+      text-align:center;
+      z-index:200;
+      position: absolute;
+top: 45%;
+    width: 100%;
+    margin:0;
+    background-color:rgba(255,255,255,0.9);
+    padding:.5rem;
+    font-family:$subheader;
+    font-variant:small-caps;
+     @include transition-quick;
+    }
+} 
+
+.spec-wrap:hover{
+
+h3{
+ display:none;
+ @include transition-quick;
+}
+}
+
+
+
+
+
+
+
+/*============================================
+
+Content Desktop Styles
+
+============================================*/
+
+@media screen and (min-width: 63.9375em){
+
+body{
+  // background-image:url('../images/bg.jpg');
+  // background-size:cover;
+  // background-repeat:no-repeat;
+
+  @include transition
+}
+
+.logo{
+    width:75%;
+    margin:0 auto;
+    @include mui-animation(fade(in));
+    animation-duration: 1s;
+    z-index:1;
+  }
+
+
+
+
+}
+
+/*============================================
+
+Content Tablet Styles
+
+============================================*/
+
+@media screen and (max-width: 63.9375em){
+.logo{
+  width:50%;
+  margin:0 auto;
+}
+
+}
+
+/*============================================
+
+Content Mobile Styles
+
+============================================*/
+
+@media screen and (max-width: 39.9375em) {
+body{
+  // background-image:url('../images/bg-mob.png');
+}
+
+.logo{
+  width:50%;
+  margin:0 auto;
+}
+}
+
+
+/*============================================
+
+Default Stuff
+
+============================================*/
+
 .main-wrap {
   @include grid-row();
   margin-top: 1rem;
@@ -47,5 +201,5 @@
       @include grid-col-pos(-8);
       margin-top: 1rem;
     }
-  }
-}
+  } 
+} 
