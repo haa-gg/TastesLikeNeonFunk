@@ -9,7 +9,7 @@
 ?>
 
 <nav class="mobile-off-canvas-menu off-canvas position-left" id="<?php foundationpress_mobile_menu_id(); ?>" data-off-canvas data-auto-focus="false" role="navigation">
-  <?php foundationpress_mobile_nav(); ?>
+ <?php wp_nav_menu(array('sort_column' => 'menu_order', 'container_class' => 'menu-header')); ?>
 </nav>
 
 <div class="off-canvas-content" data-off-canvas-content>

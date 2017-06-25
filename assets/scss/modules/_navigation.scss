@@ -85,6 +85,48 @@ Content Tablet Styles
 
 @media screen and (max-width: 63.9375em){
 
+.site-title-bar{
+  position:fixed;
+  width:100%;
+  z-index:1000;
+  @include mui-animation(slide(in,down));
+  animation-duration: .5s; 
+}
+
+.hero-head{
+
+  img{
+  margin-top:2rem;
+}
+}
+
+.logged-in{
+
+.mobile-off-canvas-menu{
+  padding-top:3rem;
+}  
+}
+
+.mobile-off-canvas-menu{
+  background-color:#000;
+
+  ul{
+    list-style-type:none;
+    margin:0;
+
+    li{
+
+      a{
+        border-bottom:1px solid #dadada;
+        display:block;
+        padding:.5rem;
+        color:#fff;
+        letter-spacing:.1rem;
+      }
+    }
+  }
+}
+
   }
 
 /*============================================
@@ -97,11 +139,7 @@ Nav Mobile Styles
 
 }
 
-// Navigation breakpoints
-.mobile-menu,
-.site-title-bar {
-  @include hide-for(medium);
-}
+
 
 .desktop-menu,
 .site-navigation .top-bar-left {

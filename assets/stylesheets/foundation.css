@@ -7741,16 +7741,50 @@ Nav Desktop Styles
 Content Tablet Styles
 
 ============================================*/
+@media screen and (max-width: 63.9375em) {
+  .site-title-bar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    -webkit-animation-name: slide-in-down-100;
+            animation-name: slide-in-down-100;
+    -webkit-animation-duration: .5s;
+            animation-duration: .5s; }
+  @-webkit-keyframes slide-in-down-100 {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%); }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0); } }
+  @keyframes slide-in-down-100 {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%); }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0); } }
+  .hero-head img {
+    margin-top: 2rem; }
+  .logged-in .mobile-off-canvas-menu {
+    padding-top: 3rem; }
+  .mobile-off-canvas-menu {
+    background-color: #000; }
+    .mobile-off-canvas-menu ul {
+      list-style-type: none;
+      margin: 0; }
+      .mobile-off-canvas-menu ul li a {
+        border-bottom: 1px solid #dadada;
+        display: block;
+        padding: .5rem;
+        color: #fff;
+        letter-spacing: .1rem; } }
+
 /*============================================
 
 Nav Mobile Styles
 
 ============================================*/
-@media print, screen and (min-width: 40em) {
-  .mobile-menu,
-  .site-title-bar {
-    display: none !important; } }
-
 @media screen and (max-width: 39.9375em) {
   .desktop-menu,
   .site-navigation .top-bar-left {
@@ -7887,6 +7921,10 @@ img {
   -webkit-transition: all 100ms ease-out 100ms;
   transition: all 100ms ease-out 100ms; }
 
+.site-foot {
+  text-align: center;
+  padding: 1rem 0; }
+
 /*============================================
 
 Content Desktop Styles
@@ -7923,7 +7961,11 @@ Content Tablet Styles
 @media screen and (max-width: 63.9375em) {
   .logo {
     width: 50%;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .destination .spec-wrap {
+    margin: 1rem 0; }
+  .fp-intro {
+    padding: 0 1rem; } }
 
 /*============================================
 

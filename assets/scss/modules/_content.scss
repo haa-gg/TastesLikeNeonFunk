@@ -79,7 +79,11 @@ h3{
 }
 }
 
+.site-foot{
 
+  text-align:center;
+  padding:1rem 0;
+}
 
 
 
@@ -124,6 +128,17 @@ Content Tablet Styles
 .logo{
   width:50%;
   margin:0 auto;
+}
+
+.destination{
+
+  .spec-wrap{
+    margin:1rem 0;
+  }
+}
+
+.fp-intro{
+  padding:0 1rem;
 }
 
 }

@@ -4,21 +4,9 @@ Template Name: Front
 */
 get_header(); ?>
 
-<div class="desk-nav show-for-medium">
-	
-<?php wp_nav_menu(array('sort_column' => 'menu_order', 'container_class' => 'menu-header')); ?>
-	
-</div>
 
-<div class="row hero-head">
 
-<div class="column small-12">
 
-<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo.png" class="logo" alt="Glendon Gengel's Design and Development Work">
-
-</div>
-
-</div>
 
 <?php // do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
