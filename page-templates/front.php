@@ -30,7 +30,7 @@ get_header(); ?>
 				<p><?php the_tags(); ?></p>
 			</footer>
 			<?php do_action( 'foundationpress_page_before_comments' ); ?>
-			<?php comments_template(); ?>
+			<?php //comments_template(); ?>
 			<?php do_action( 'foundationpress_page_after_comments' ); ?>
 		</div>
 
@@ -53,7 +53,7 @@ get_header(); ?>
 	<?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 5, 3 )
+    'category__and' => array( 3, 6 )
 );
 
 $my_query = new WP_Query( $args );
@@ -85,7 +85,7 @@ wp_reset_postdata();
 <?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 5, 4 )
+    'category__and' => array( 3, 5 )
 );
 
 $my_query = new WP_Query( $args );
@@ -118,7 +118,7 @@ wp_reset_postdata();
 <?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 5, 6 )
+    'category__and' => array( 3, 4 )
 );
 
 $my_query = new WP_Query( $args );

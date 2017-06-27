@@ -20,7 +20,7 @@
 
 // Third-party libraries
 @import 'font-awesome';
-@import 'motion-ui';
+@import 'motion-ui'; 
 
 // Foundation global styles
 @include foundation-global-styles;
@@ -77,11 +77,11 @@
 //Mixins and constants
 @font-face {
      font-family: 'bauhaus';
-    src: url('../../bauhaus-webfont.eot');
-    src: url('../../bauhaus-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../../bauhaus-webfont.woff2') format('woff2'),
-         url('../../bauhaus-webfont.woff') format('woff'),
-         url('../../bauhaus-webfont.ttf') format('truetype');
+    src: url('../../fonts/bauhaus-webfont.eot');
+    src: url('../../fonts/bauhaus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bauhaus-webfont.woff2') format('woff2'),
+         url('../../fonts/bauhaus-webfont.woff') format('woff'),
+         url('../../fonts/bauhaus-webfont.ttf') format('truetype');
 }
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,400,700,900');

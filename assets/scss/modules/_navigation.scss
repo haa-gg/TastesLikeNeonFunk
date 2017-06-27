@@ -31,6 +31,7 @@ padding-top:2rem;
 
       li{
         margin:.5rem 0;
+        display:block;
 
         a{
           background-color:#000;
@@ -108,13 +109,14 @@ Content Tablet Styles
 }
 
 .mobile-off-canvas-menu{
-  background-color:#000;
+  background-color:#1d1d1d;
 
   ul{
     list-style-type:none;
     margin:0;
 
     li{
+      display:block;
 
       a{
         border-bottom:1px solid #dadada;

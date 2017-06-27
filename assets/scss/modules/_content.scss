@@ -113,7 +113,17 @@ body{
     z-index:1;
   }
 
+.fi-wrap{
+width:66%;
+float:right;
+padding:0rem 0rem 1rem 1rem;
 
+img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+}
 
 
 }
@@ -141,6 +151,12 @@ Content Tablet Styles
   padding:0 1rem;
 }
 
+.fi-wrap{
+width:66%;
+float:right;
+padding:1rem 1rem;
+}
+
 }
 
 /*============================================
@@ -154,9 +170,22 @@ body{
   // background-image:url('../images/bg-mob.png');
 }
 
+.fi-wrap{
+width:100%;
+float:none;
+padding:1rem 1rem;
+}
+
 .logo{
   width:50%;
   margin:0 auto;
+}
+
+.destination{
+
+  .feature{
+    padding:8rem 0;
+  }
 }
 }
 

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Web Design
+Template Name: Graphic Design
 */
 get_header(); ?>
 
@@ -43,7 +43,7 @@ get_header(); ?>
 
 <?php 
 $args = array(
-    'cat' => 5
+    'cat' => 4
 );
 
 $my_query = new WP_Query( $args );
