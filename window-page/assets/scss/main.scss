@@ -1,0 +1,77 @@
+/*================================================================
+
+General purpose stylesheet
+
+================================================================*/
+
+/*================================================================
+
+Mixes, variables, and bolierplate junk
+
+================================================================*/
+
+						@mixin flex-center{
+							display: -webkit-flex;
+							display: flex;
+							-webkit-justify-content: space-between;
+							justify-content: space-between;
+							-webkit-align-items: center;
+							align-items: center;
+							list-style: none;
+						}
+
+						@mixin transition{
+							-webkit-transition: all 200ms ease-out 200ms;
+							-moz-transition: all 200ms ease-out 200ms;
+							-o-transition: all 200ms ease-out 200ms;
+							transition: all 200ms ease-out 200ms;
+						}
+
+						.desk-show{
+							display:inherit;
+						}
+
+						.mobile-show{
+							display:none;
+						}
+
+/*================================================================
+
+Main Universal Styling
+
+================================================================*/
+
+
+
+
+/*================================================================
+
+Main Desktop Styling
+
+================================================================*/
+
+@media (min-width:1024px){
+
+
+
+}
+
+
+
+/*================================================================
+
+Main Mobile Styling
+
+================================================================*/
+
+@media (max-width:1023px){
+
+	.desk-show{
+		display:none;
+	}
+
+	.mobile-show{
+		display:inherit;
+	}
+
+}
