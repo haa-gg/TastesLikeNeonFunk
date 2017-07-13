@@ -1,0 +1,143 @@
+<h2>Law firm landing pages can have a great deal of dynamic content in them</h2>
+
+<p>	The firms are also keen on looking dignified and professional so the pages can get to be quite a handful!</p> 
+
+<p>If you want to see this puppy in action, check out:  <a href="http://designerofstuff.com/example-law-lp">http://designerofstuff.com/law-lp</a> and play with the device types to see all the responsive love put into the page.</p>
+
+<p>Most of the exciting bits involving putting locations in different arrays does not get used here as we don't have addresses. However, we can swap the headline region by adding a ?camp=1 or ?camp=2 (<a href="http://designerofstuff.com/example-law-lp?camp=1">http://designerofstuff.com/example-law-lp?camp=1</a>) query to the end of the URL. We can also change out the geographic region from the default of "Minnesota" for something a bit more exciting like "Camelot" by adding a url query of ?geo=camelot (<a href="http://designerofstuff.com/example-law-lp?geo=camelot">http://designerofstuff.com/law-lp?geo=camelot</a>).</p>
+
+<p>	Take a look at what the dynamic php tends to look like to render proper geographic and headline info:</p>
+
+<pre class="theme:github lang:default decode:true " >&lt;?php  
+
+//Setting phone as a var
+$phone = "&lt;a href=\"tel:1\"&gt;111-111-1111&lt;/a&gt;"; 
+
+$phonelink = "1";?&gt;
+
+&lt;?php 
+//Assign the $geo variable to whatever the ?geo= query is equal to
+$geo = $_GET['geo'];
+
+//Put all cities in a single array
+$geo_arr = array ("minneapolis", "moscow", "camelot", "chicago", "los-angeles");
+
+//Put the geos with small address sets in this array
+$small_arr = array ();
+
+//Put any small address geos with 2 addresses in here
+$stack_arr = array ();
+
+//This bad boy makes sure the geo query is a legit one and not some sketchy bit of SQL
+if (in_array($geo, $geo_arr)){
+
+    $geo_pos = array_search($geo, $geo_arr);
+
+    $geo_active = $geo_arr[$geo_pos];
+
+            //Detect if the geo has numbers in it and if it does, then go do some special formatting to it
+    if (strcspn($geo_active, '0123456789') != strlen($geo_active)) {
+
+        switch ($geo_active) {
+
+//Throw the special snowlfake formatting cases in here
+            case "twin-123":
+            $geo_txt = "Twin Cities";
+            break;
+
+            case "twin-456":
+            $geo_txt = "Twin Cities";
+            break;
+
+            case "twin-789":
+            $geo_txt = "Twin Cities";
+            break;
+        }
+
+    } 
+
+    else{
+
+//If the geo case is not a special snowflake, then just swap the dashes for spaces and capitalize verything properly
+        $geo_txt = str_replace("-", " ",$geo_active);
+
+        $geo_txt = ucwords($geo_txt);
+
+    }
+    
+}
+
+else{
+//Putting in a default geo value in case somebody puts in a geo query we don't like or flubs the spelling
+        $geo = "minnesota";
+
+        $geo_txt = "Minnesota";
+        
+    }
+
+//Checks if the active geo is supposed to be small address format
+$format_var="big-addr";
+
+if(in_array($geo_active,$small_arr)){
+
+    $format_var="sm-addr";
+
+}
+
+//Extra formatting junk for small addresses w/ more than 1 address
+$stack_var = "";
+$stack_fmt = "";
+if(in_array($geo_active,$stack_arr)){
+
+    $stack_var="-stack";
+    $stack_fmt="stack";
+
+}
+
+?&gt;
+
+&lt;?php
+
+//Uses gets device type in case we want something to render differently
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+
+if ($iphone || $android || $palmpre || $ipod || $ipad || $berry == true) { 
+           $device='mobile';
+    } else {
+         $device='desk';
+    }
+
+?&gt;
+
+&lt;?php
+
+//gets the &amp;camp query and populates the headline with it
+$haa_query_2 = $_GET['camp'];
+
+switch ($haa_query_2) {
+
+    case "1":
+    $camp = 'Need Expert Legal Assistance?';
+    break;
+
+    case "2":
+    $camp = 'Out To Fight A Ticket?';
+    break;
+
+    default:
+    $camp = 'Are You In Trouble With The Law?';
+
+}
+?&gt;
+
+&lt;?php 
+
+    //Extra classes for the LP fed in as body classes
+$extra_classes=array($device,'generic-law', $format_var, $stack_fmt); 
+?&gt;</pre> 
+

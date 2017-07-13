@@ -21,6 +21,11 @@ h2{
   line-height:90%;
 }
 
+a{
+  color:#000;
+  border-bottom:5px solid #2abcff;
+}
+
 img{
   height:100%;
   display:block;
@@ -33,6 +38,7 @@ img{
   a{ 
     background-color:rgba(0,0,0,0.3);
     z-index:150;
+    border-bottom:none;
   }
 
   .feature{
@@ -104,6 +110,13 @@ body{
   // background-repeat:no-repeat;
 
   @include transition
+}
+
+.destination{
+
+  .column{
+  padding:.9rem;
+}
 }
 
 .logo{

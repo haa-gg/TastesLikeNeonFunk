@@ -39,7 +39,7 @@ get_header(); ?>
 <?php endwhile;?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<div class="row destination align-middle small-up-2 medium-up-3 large-up-3">
+<div class="row destination align-middle small-up-1 medium-up-3 large-up-3">
 
 <?php 
 $args = array(

@@ -1,0 +1,105 @@
+<h2>This is by far the largest site I have ever worked on</h2>
+
+<p>	 I’m supposed to give you an idea of what I know and what makes me tick. To do this, I am going to show you the 1800’s haunted mansion off in some Scottish moor I was ordered to restore, keeping the general look a feel while bringing the electrical, plumbing, and wifi up the the present century with the help of one seasoned craftsman. The site is http://hoglundlaw.com and the current progress can be viewed at http://hcm2017.wpengine.com. I will start with what we were handed and transition over to what we are doing.</p>
+
+<p>	The site we were handed was something created by a few motivated IT professionals  who were going above and beyond the call of duty in an area outside what they specialized in. They took the Modernize theme,  a readily available and easily customized theme for WordPress and switched around a few easily accessed options to make it unique. They then started posting blog articles, tinkered with custom post types, and build individual pages in a half-WYSIWYG interface with markup that made individual pages look good but were jarring and inconsistent taken as a whole. Once the base site was in place, they began experimenting with microsites and somebody must have LOVED them because by the time the senior dev and I were taken on board there were over 300 of them, most of which consisted of 5 pages. A geo specific landing page and 4 site links all of which differed from each other in very non-uniform ways.</p>
+
+<p>	The senior dev, James and I looked this sprawling mass over in my first week with the company and knew one day we would turn it into something to be proud of. We are now in the midst of reducing the number of sites down to one, the number of landing pages down to 5 instead of 300+ and the various pages written in a consistent manner with uniform markup.</p>
+
+<p>	I started with the city of landing pages, learning about how to make dynamic landing pages that would render geo-specific partials that would render specific maps, sets of addresses, headlines, and phone numbers so the page would feel custom tailored to what a user would find relevant based on where they were making their search from. The two lynch pins of this operation involved rendering specific partials based on custom queries in the ad-words url and a custom javascript function called via Google Tag Manager which would swap out phone numbers. The page hoglundlaw.com/ohio-social-security/?useHAAG=44 would give you a different set of maps, addresses and phone numbers versus http://hoglundlaw.com/ohio-social-security/?useHAAG=98. This change really got the ball rolling and the owners attention fixed on how we could build the rest of the site in a much smarter fashion as we reduced maintenance and general time to make small changes to the page by an order of magnitude. Making a change in one place instead of across something like 30 page just for a change to a quality statement they wanted for Ohio.</p>
+
+<p>	This opened the door the the full overhaul of the site which led to a few key changes in how major sections of how the site works. We swapped the attorney pages and everything involved with the locations pages over to custom post types instead of custom built  pages (http://hoglundlaw.com/attorneys versus http://hcm2017.wpengine.com/attorneys/). We now generate these pages based of custom post loops. 
+The underlying framework changed as well from the more rookie friendly Modernize theme to the Foundationpress theme which offers dramatically better control and scaling for a dev willing to put in the time to make the theme into whatever they want. A few key aspects of the site this theme made better are that it is responsive versus adaptive (preset widths and breakpoints in pixels versus flexible shift points which work around the device), better access to Foundation CSS and JS framework (cooked right into the bare bones of the theme) and ultimately better user-friendliness to anybody with less experience looking to update some details on a page or adding a new attorney, location or author. The theme also comes with its own SASS transpiler which makes editing the look and feel of major elements a much more organized process than looking through a single, sprawling stylesheet.</p>
+
+<p>	A more nitty-gritty example of added utility we put into the site is related to adding an author info snippet to every blog article. Instead of every article being posted to http://hoglundlaw.com/hoglund-blog being attributed to the mysterious ‘Admin’ user except for a hard coded attorney name at the bottom of most posts, each will have a picture of the attorney, a quick bio about them and a link to all posts made by that attorney which you can see at http://hcm2017.wpengine.com/hoglund-blog/ . All of this magic comes into the post by way of this snippet:</p>
+
+<code>
+
+<?php
+
+/*=====================================
+
+Begin the awesome author info box generator
+
+=====================================*/
+
+// Get Author Data
+
+$author             = get_the_author();
+
+$author_description = get_the_author_meta( 'description' );
+
+$author_url         = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
+
+//$author_avatar      = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'wpex_author_bio_avatar_size', 75 ) );
+
+$author_avatar      = true;
+
+$author_clean = preg_replace('/\s+/', '-', $author);
+
+$author_clean = strtolower($author_clean);
+
+// Only display if author has a description
+
+if ( $author_description ) : ?>
+
+<div class="row auth-row">
+
+<div class="columns small-2 auth-pic-col">
+
+		<?php if ( $author_avatar ) { ?>
+
+		<div class="author-avatar clr">
+
+			<a href="<?php echo esc_url( $author_url ); ?>" rel="author">
+
+				<?php //  echo userphoto_the_author_photo(); ?>
+
+				<?php // TODO: finish this function ?>
+
+				<div class="auth-pick">
+
+					<img class="bottom" src="/wp-content/uploads/blog-authors/author-<?php echo $author_clean ?>.jpg"/>
+
+					<img class="top" src="/wp-content/uploads/blog-authors/author-<?php echo $author_clean ?>-g.jpg"/>
+
+				</div>
+
+			</a>
+
+		</div><!-- .author-avatar -->
+
+		<?php } ?>
+
+	</div>
+
+	<div class="columns small-10 auth-desc-col">
+
+		<h4 class="heading"><span><?php printf( esc_html__( 'Written by %s', 'text_domain' ), esc_html( $author ) ); ?></span></h4>
+
+		<div class="author-description">
+
+			<p><?php echo wp_kses_post( $author_description ); ?></p>
+
+			<p><a href="<?php echo esc_url( $author_url ); ?>" title="<?php esc_html_e( 'View all author posts', 'text_domain' ); ?>"><?php esc_html_e( 'View all author posts', 'foundationpress' ); ?> →</a></p>
+
+		</div><!-- .author-description -->
+
+	</div>
+
+</div>
+
+<?php
+
+/*=====================================
+
+End the awesome author info box generator
+
+=====================================*/
+
+endif; ?>
+
+</code>
+
+<p>	Which was based off asking just the right question to Google, finding a snippet which does 75% of what we wanted then fine-tuning it to what we were looking for. </p>
+

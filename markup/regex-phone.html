@@ -1,0 +1,50 @@
+<h2>Websites are great and all but scripts can be a blast all on their own!</h2>
+
+<p>Here's a phone flipping script I have been working on that will find every phone number on a page and flip them all to the same one, which is really handy for adwords tracking.</p>
+
+<p>Just read through the code comments to see how the whole thing works, my end goal is to make it take in a url query, grab that number from a stored array and flip all of the numbers to that.</p>
+
+<p>If you want to see it in action, check out: <a href="https://jsfiddle.net/uohx1fo3/15/">https://jsfiddle.net/uohx1fo3/15/</a></p>
+
+<pre class="theme:github lang:default decode:true " >&lt;?php  
+
+jQuery(document).ready(function () {
+
+//Throw the phone number you want everything to flip to right here
+var swapTarget = '123-456-7890';
+
+//This is the bit that recognises a phone number
+var regex = /(((\(\d{3}\) ?)|(\d{3}-)|(\d{3}\.))?\d{3}(-|\.)\d{4})/g; 
+
+//Tells the script where to search in the document
+var text = jQuery("body:first").not('script').html();
+
+//Makes the text var look for our regex and swap it for our new number 
+text = text.replace(regex, swapTarget);
+
+//Turns the text var loose on the DOM to switch out the phone numbers
+jQuery("body").html(text);
+
+/*===============================================
+We've made it half way and nothing has erupted into flames, take a moment to pat yourself on the back and then check below to make sure you have the right vars set.
+===============================================*/
+
+//Format the swap target for an href
+//swapTarget.text( swapTarget.text().replace('-', '') );
+var swapTarget = '"tel:1' + swapTarget + '"';
+console.log(swapTarget);
+
+//Now to handle those pesky href numbers with a different selector...
+var regex = /((\"tel:((\d{11})|(\d{10})|(((\(\d{3}\) ?)|(\d{3}-)|(\d{3}\.))?\d{3}(-|\.)\d{4}))\"))/g;
+
+//Makes the text var look for our regex and swap it for our new number 
+text = text.replace(regex, swapTarget);
+
+//Fire the main cannons!
+jQuery("body").html(text);
+
+
+});
+
+?&gt;</pre> 
+

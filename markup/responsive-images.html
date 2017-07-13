@@ -1,0 +1,110 @@
+<h2>A Handy Little Widget That Builds And Loads Images Based On Device Width</h2>
+
+<p>So there's this nifty little property in HTML that will let the browser determine which size image to load based on how large it needs to display it. The only hassle is that these images are tedious to build since without any automation, you have to save each image at each different size. This is about as much fun as cleaning out an attic full of bats with an air horn so I came up with a handy way to make the computer do all the heavy lifting for me (now if only I could make it deal with the bats...).</p>
+
+<p>In a nutshell, my widget uses a single line in a command prompt to trigger a process which feeds all images in a directory through a program called <a href="http://www.graphicsmagick.org/">GraphicsMagic</a> that resizes it to your specifications and outputs the images to their own directory. Once we have the image files, we can easily reference all of them using a simple PHP function detailed below.</p>
+
+<p>Now for the nitty gritty on how each bit works!</p>
+
+<h2>Gulp/ Node Package Manager</h2>
+
+<p>The dependencies are crazy simple, this is all you need in your package.json</p>
+
+<pre class="theme:github lang:default decode:true " >{
+  "name": "RespImg",
+  "version": "1.0.0",
+  "description": "Image Sizing Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "author": "glen",
+  "license": "ISC",
+  "devDependencies": {
+   
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-responsive-images": "*"
+    
+  }
+}
+</pre>
+
+<p>All our NPM does is download Gulp, Gulp Concat (not necessary), and the responsive image plugin (you do need to <a href="https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick-binaries/"> manually download</a> the binaries though).</p> 
+
+<p>As for our Gulp file, the basic setup is really simple:</p>
+
+<pre class="theme:github lang:default decode:true " >
+var gulp = require('gulp');
+var responsive = require('gulp-responsive-images');
+ 
+gulp.task('responsive-img', function () {
+  gulp.src('assets/images/*.{png,gif,jpg}')
+    .pipe(responsive({
+       '*': [{
+        width: 300,
+        suffix: '-s'
+      }, {
+        width: 500,
+        suffix: '-m'
+      }, {
+        width: 600,
+        suffix: '-l'
+      }],
+      
+    }))
+    .pipe(gulp.dest('assets/images/adaptive'));
+});
+</pre> 
+
+<p>If you open a command line in your project folder after the NPM install and type "gulp responsive-img" it will generate new copies of all images in our specified folder!</p>
+
+<h2>Handy Dandy PHP Function</h2>
+
+<p>We still need a good way of writing all the mind numbing srcset markup which is where my PHP function comes into play!</p>
+
+<pre class="theme:github lang:default decode:true " >
+     <?php
+
+            function respImg ($imgName, $type){
+
+        //Assign the different sized images different names
+                $fallBack = $imgName;
+                $small = $imgName.'-s';
+                $medium = $imgName.'-m';
+                $large = $imgName.'-l';
+                $seo_uri=strtok($_SERVER["REQUEST_URI"],'?');
+                $seo_url=$_SERVER['HTTP_HOST'];
+
+        //Define image breakpoints-- the space in front is important
+                $sbrk = " 300w";
+                $mbrk = " 500w";
+                $lbrk = " 600w";
+
+        //Path to base images
+                $pathFallback = "assets/images/";
+        //$path usually defined in WordPress as:
+        // $path = get_stylesheet_directory_uri()."/assets/images/";
+
+        //Path to adaptive images
+                $path = $pathFallback."adaptive/";
+
+        //File type formatting
+                $type = $type." ";
+
+        //Actual image source and source set output
+                echo "src=\"".$pathFallback.$fallBack.$type."\" ";
+                echo "srcset=\"".$path.$small.$type.$sbrk.", ".$path.$medium.$type.$mbrk.", ".$path.$large.$type.$lbrk."\"";
+
+            }
+
+            ?>
+
+            <!-- This is all you need to do to reference the function -->
+
+            <img <?php respImg("filename",".jpg"); ?> class="responsive"
+                     alt="Some text"/>
+
+                     </pre>
+
+<p>If you have any interest in a working set of files, you can <a href="https://github.com/haa-gg/responsive-images">download them here!</a></p>	

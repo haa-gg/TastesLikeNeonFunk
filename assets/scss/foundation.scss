@@ -77,20 +77,22 @@
 //Mixins and constants
 @font-face {
      font-family: 'bauhaus';
-    src: url('../../fonts/bauhaus-webfont.eot');
-    src: url('../../fonts/bauhaus-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../../fonts/bauhaus-webfont.woff2') format('woff2'),
-         url('../../fonts/bauhaus-webfont.woff') format('woff'),
-         url('../../fonts/bauhaus-webfont.ttf') format('truetype');
+    src: url('../fonts/bauhaus-webfont.eot');
+    src: url('../fonts/bauhaus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bauhaus-webfont.woff2') format('woff2'),
+         url('../fonts/bauhaus-webfont.woff') format('woff'),
+         url('../fonts/bauhaus-webfont.ttf') format('truetype');
 }
 
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:400,400i,700');
 
-$serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$serif:  'Zilla Slab', "Times New Roman", Times, Baskerville, Georgia, serif;
 
 $header: 'bauhaus';
 
 $subheader: 'Titillium Web', sans-serif;
+
 
 $blue: #259ac3;
 
@@ -101,7 +103,7 @@ $blue: #259ac3;
   -o-transition: all 200ms ease-out 200ms;
   transition: all 200ms ease-out 200ms;
 }
-
+ 
 
 @mixin transition-quick{ 
   -webkit-transition: all 100ms ease-out 100ms;
