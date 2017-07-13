@@ -7907,6 +7907,9 @@ img {
   .destination .feature:hover {
     opacity: 1; }
 
+.entry-content img {
+  height: auto; }
+
 .spec-wrap {
   position: relative;
   background-color: black;
