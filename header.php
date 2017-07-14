@@ -12,6 +12,12 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
+	<!-- 
+	Digging around in the HTML, huh? 
+	That's awesome! 
+	If you want the source files for this project to mess around with, head over to https://github.com/haa-gg/TastesLikeNeonThrashMetal
+	and download my repo.
+	-->
 	<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

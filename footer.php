@@ -13,7 +13,9 @@
 <div class="row site-foot">
 	
 	<div class="column small-12">
-		<p>Website copyright <?php echo date('Y');?>. All rights reserved.</p>
+		<p>Website copyright <?php echo date('Y');?>. All rights reser-- Nah, I'm just playing with ya, the whole thing is up on an open repo on <a href="https://github.com/haa-gg/TastesLikeNeonThrashMetal">github!</a></p>
+
+		<p>Feel free to use it, break it, fix it, trash it, change it, mail, upgrate it.</p>
 	</div>
 
 </div>

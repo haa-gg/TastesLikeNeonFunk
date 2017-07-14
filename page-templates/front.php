@@ -53,7 +53,7 @@ get_header(); ?>
 	<?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 3, 6 )
+    'category_name' =>  'featured+web-development' 
 );
 
 $my_query = new WP_Query( $args );
@@ -85,7 +85,7 @@ wp_reset_postdata();
 <?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 3, 5 )
+    'category_name' =>  'featured+web-design' 
 );
 
 $my_query = new WP_Query( $args );
@@ -118,7 +118,7 @@ wp_reset_postdata();
 <?php 
 $args = array(
     'posts_per_page' => 1,
-    'category__and' => array( 3, 4 )
+   'category_name' =>  'featured+graphic-design' 
 );
 
 $my_query = new WP_Query( $args );
