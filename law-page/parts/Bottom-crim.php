@@ -31,7 +31,7 @@
     <div class="columns small-12 medium-12 large-4 r5-c1" >
 
       <img alt="picture"
-      src="<?php echo get_stylesheet_directory_uri();?>/law-lp/assets/images/scales.jpg"
+      src="<?php echo get_stylesheet_directory_uri();?>/law-page/assets/images/scales.jpg"
       class="r4-portrait">
 
     </div>

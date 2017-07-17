@@ -159,7 +159,7 @@ $extra_classes=array($device,'generic-law', $format_var, $stack_fmt);
     <link rel="canonical" href="<?php echo $seo_url.$seo_uri.'?useHAAG=1'; ?>" />
     <!-- End SEO Link -->
 
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/law-lp/assets/scss/style-haa-crim.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/law-page/assets/scss/style-haa-crim.css">
     
 
     
@@ -199,7 +199,7 @@ $extra_classes=array($device,'generic-law', $format_var, $stack_fmt);
 
             <div class="desk-show">
 
-                <img src="<?php echo get_stylesheet_directory_uri();?>/law-lp/assets/images/logo.jpg" class="r1-logo desk-show"
+                <img src="<?php echo get_stylesheet_directory_uri();?>/law-page/assets/images/logo.jpg" class="r1-logo desk-show"
                 alt="Example Law Firm"/>
 
             </div>
@@ -210,7 +210,7 @@ $extra_classes=array($device,'generic-law', $format_var, $stack_fmt);
 
                     <div class="columns small-12 medium-12 large-12">
 
-                        <img src="<?php echo get_stylesheet_directory_uri();?>/law-lp/assets/images/logo.jpg" class="r1-logo"
+                        <img src="<?php echo get_stylesheet_directory_uri();?>/law-page/assets/images/logo.jpg" class="r1-logo"
                         alt="Example Law Firm"/>
 
                     </div>
@@ -295,7 +295,7 @@ Let Our Years Of Combined Experience Help You!<sup>*</sup>
 
     <div class="columns small-12 large-3 r2-c2" >
 
-       <?php echo do_shortcode('[contact-form-7 id="57" title="Sidebar Criminal Defense Page"]'); ?>
+       <?php echo do_shortcode('[contact-form-7 id="69" title="Law CF"]'); ?>
 
    </div>
 

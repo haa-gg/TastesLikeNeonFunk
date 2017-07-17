@@ -43,7 +43,7 @@ get_header(); ?>
 
 <?php 
 $args = array(
-    'cat' => 5
+    'category_name' =>  'web-design' 
 );
 
 $my_query = new WP_Query( $args );

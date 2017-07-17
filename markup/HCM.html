@@ -13,9 +13,8 @@ The underlying framework changed as well from the more rookie friendly Modernize
 
 <p>	A more nitty-gritty example of added utility we put into the site is related to adding an author info snippet to every blog article. Instead of every article being posted to http://hoglundlaw.com/hoglund-blog being attributed to the mysterious ‘Admin’ user except for a hard coded attorney name at the bottom of most posts, each will have a picture of the attorney, a quick bio about them and a link to all posts made by that attorney which you can see at http://hcm2017.wpengine.com/hoglund-blog/ . All of this magic comes into the post by way of this snippet:</p>
 
-<code>
-
-<?php
+ 
+<pre class="theme:github lang:default decode:true " >&lt;?php
 
 /*=====================================
 
@@ -41,55 +40,55 @@ $author_clean = strtolower($author_clean);
 
 // Only display if author has a description
 
-if ( $author_description ) : ?>
+if ( $author_description ) : ?&gt;
 
-<div class="row auth-row">
+&lt;div class="row auth-row"&gt;
 
-<div class="columns small-2 auth-pic-col">
+&lt;div class="columns small-2 auth-pic-col"&gt;
 
-		<?php if ( $author_avatar ) { ?>
+		&lt;?php if ( $author_avatar ) { ?&gt;
 
-		<div class="author-avatar clr">
+		&lt;div class="author-avatar clr"&gt;
 
-			<a href="<?php echo esc_url( $author_url ); ?>" rel="author">
+			&lt;a href="&lt;?php echo esc_url( $author_url ); ?&gt;" rel="author"&gt;
 
-				<?php //  echo userphoto_the_author_photo(); ?>
+				&lt;?php //  echo userphoto_the_author_photo(); ?&gt;
 
-				<?php // TODO: finish this function ?>
+				&lt;?php // TODO: finish this function ?&gt;
 
-				<div class="auth-pick">
+				&lt;div class="auth-pick"&gt;
 
-					<img class="bottom" src="/wp-content/uploads/blog-authors/author-<?php echo $author_clean ?>.jpg"/>
+					&lt;img class="bottom" src="/wp-content/uploads/blog-authors/author-&lt;?php echo $author_clean ?&gt;.jpg"/&gt;
 
-					<img class="top" src="/wp-content/uploads/blog-authors/author-<?php echo $author_clean ?>-g.jpg"/>
+					&lt;img class="top" src="/wp-content/uploads/blog-authors/author-&lt;?php echo $author_clean ?&gt;-g.jpg"/&gt;
 
-				</div>
+				&lt;/div&gt;
 
-			</a>
+			&lt;/a&gt;
 
-		</div><!-- .author-avatar -->
+		&lt;/div&gt;&lt;!-- .author-avatar --&gt;
 
-		<?php } ?>
+		&lt;?php } ?&gt;
 
-	</div>
+	&lt;/div&gt;
 
-	<div class="columns small-10 auth-desc-col">
+	&lt;div class="columns small-10 auth-desc-col"&gt;
 
-		<h4 class="heading"><span><?php printf( esc_html__( 'Written by %s', 'text_domain' ), esc_html( $author ) ); ?></span></h4>
+		&lt;h4 class="heading"&gt;&lt;span&gt;&lt;?php printf( esc_html__( 'Written by %s', 'text_domain' ), esc_html( $author ) ); ?&gt;&lt;/span&gt;&lt;/h4&gt;
 
-		<div class="author-description">
+		&lt;div class="author-description"&gt;
 
-			<p><?php echo wp_kses_post( $author_description ); ?></p>
+			&lt;p&gt;&lt;?php echo wp_kses_post( $author_description ); ?&gt;&lt;/p&gt;
 
-			<p><a href="<?php echo esc_url( $author_url ); ?>" title="<?php esc_html_e( 'View all author posts', 'text_domain' ); ?>"><?php esc_html_e( 'View all author posts', 'foundationpress' ); ?> →</a></p>
+			&lt;p&gt;&lt;a href="&lt;?php echo esc_url( $author_url ); ?&gt;" title="&lt;?php esc_html_e( 'View all author posts', 'text_domain' ); ?&gt;"&gt;&lt;?php esc_html_e( 'View all author posts', 'foundationpress' ); ?&gt; →&lt;/a&gt;&lt;/p&gt;
 
-		</div><!-- .author-description -->
+		&lt;/div&gt;&lt;!-- .author-description --&gt;
 
-	</div>
+	&lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
-<?php
+&lt;?php
 
 /*=====================================
 
@@ -97,9 +96,8 @@ End the awesome author info box generator
 
 =====================================*/
 
-endif; ?>
+endif; ?&gt;</pre> 
 
-</code>
 
 <p>	Which was based off asking just the right question to Google, finding a snippet which does 75% of what we wanted then fine-tuning it to what we were looking for. </p>
 

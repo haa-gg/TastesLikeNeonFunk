@@ -203,7 +203,7 @@ Row 2
   bottom: 20px; }
 
 .r2-c2 {
-  display: table;
+  display: initial;
   color: #000;
   text-align: left;
   position: relative; }
@@ -231,7 +231,7 @@ Row 2
   font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; }
 
 .r2 h1 {
-  font-size: 3.2vw;
+  font-size: 3.0vw;
   font-weight: 700;
   line-height: 100%;
   font-family: "Roboto Condensed", sans-serif;
@@ -592,7 +592,7 @@ Row 7
 =====================================================*/
 @media (min-width: 1024px) {
   .hero-text {
-    font-size: 3.5vw;
+    font-size: 3.0vw;
     color: #183a4e;
     font-weight: 700;
     font-family: "Roboto Condensed", sans-serif;

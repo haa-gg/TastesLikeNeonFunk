@@ -223,7 +223,7 @@
 
 	<div class="small-12 medium-12 large-8 columns r6-c2">
 
-		<a name="cf7"><?php echo do_shortcode( '[contact-form-7 id="85" title="Contractor CF"]' ); ?></a>
+		<a name="cf7"><?php echo do_shortcode( '[contact-form-7 id="45" title="Contractor CF"]' ); ?></a>
 
 	</div>
 

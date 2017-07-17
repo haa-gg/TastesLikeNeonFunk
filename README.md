@@ -1,2 +1,2 @@
-# TastesLikeNeonFunk
-Title says it all, I suppose.
+# TastesLikeNeonThrashMetal
+This is my stack of work examples and my site's theme template.

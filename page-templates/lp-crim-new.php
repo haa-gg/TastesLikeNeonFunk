@@ -10,12 +10,14 @@ Template Name: Law Landing Page
 /*$actual_link = "$_SERVER[REQUEST_URI]";
 
 preg_match_all('!\d+!', $actual_link, $matches);
+
+include(dirname(__DIR__).'/law-page/parts/top.php');
 */
 
 ?>
 
 <?php
-include(__DIR__.'/../law-lp/parts/Top-crim.php');
+include(dirname(__DIR__).'/law-page/parts/Top-crim.php');
 ?>
 
     <div class="row r3">
@@ -24,7 +26,7 @@ include(__DIR__.'/../law-lp/parts/Top-crim.php');
 
             
             <?php
-include(__DIR__.'/../law-lp/parts/what-you-need-crim.php');
+include(dirname(__DIR__).'/law-page/parts/what-you-need-crim.php');
 ?>
 
         </div>
@@ -32,7 +34,7 @@ include(__DIR__.'/../law-lp/parts/what-you-need-crim.php');
         <div class="columns small-12 large-5 r3-c2 show-for-medium">
 
             <?php
-            include(__DIR__.'/../law-lp/parts/testimonials.php');
+           include(dirname(__DIR__).'/law-page/parts/testimonials.php');
             ?>
 
         </div>
@@ -43,7 +45,7 @@ include(__DIR__.'/../law-lp/parts/what-you-need-crim.php');
    
 
 <?php
-include(__DIR__.'/../law-lp/parts/Bottom-crim.php');
+include(dirname(__DIR__).'/law-page/parts/Bottom-crim.php');
 ?>
   
 
