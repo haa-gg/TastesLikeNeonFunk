@@ -14,6 +14,8 @@
  * @since FoundationPress 1.0.0
  */
 
+add_filter( 'auto_update_plugin', '__return_true' );
+
 /** Various clean up functions */
 require_once( 'library/cleanup.php' );
 

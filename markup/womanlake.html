@@ -1,14 +1,9 @@
-<h2>A remote canadian hunting lodge up in Ontario</h2>
+<h2>A remote Canadian hunting lodge up in Ontario</h2>
 
-<p><a href="http://www.womanlakelodgecanada.com">Womanlakelodgecanada.com</a> has been through 2 face lifts since I took over work on the site way back when.</p>
+<p><a href="http://www.womanlakelodgecanada.com">Womanlakelodgecanada.com</a> has been through 3 face lifts since I took over work on the site way back when.</p>
 
-<p>The goal is always to give the important information as efficiently as possible but the trick is figuring out what is important. I had assumed the important factors would be price, pictures, and contact info but after working with the client, I learned the main function was to show the viewer this lodge was a quality place to stay. Why would anybody want to know the price or how to reach the lodge if they didn't like the scenery or have an idea of what the accommodations were?</p>
+<p>This round's goal was to more actively use all the awesome pictures and video footage the hunters and fishermen get when they travel up there.</p>
 
-<p>Information efficiency was still always the goal but this site taught me to always ask what is important and to always ask myself what somebody is on the site to do.</p>
+<p>The place this really shines is in the top area of the home page (better known as the hero region or jumbotron to web nerds). We have 4 slides using images and text I selected with the idea of showing off the wonderful memories made heere and the beastly fish dredged up from the depths of the surrounding lakes.</p>
 
-<p>From a tech standpoint, the site's framework is Bootstrap which was my stepping stone over to Foundation and all of it's incredible bells and whistles. An interesting difference about this site versus most others I have seen in the wild is I experimented with using 2 different style sheets based on device width instead of an @media request just to try something different.</p>
-
-<pre class="theme:github lang:default decode:true " >
-     <link rel="stylesheet" href="http://www.womanlakelodgecanada.com/wp-content/themes/wll-2/SmStyle.css" type="text/css" media="(max-width: 600px)" />
-      <link rel="stylesheet" href="http://www.womanlakelodgecanada.com/wp-content/themes/wll-2/LgStyle.css" type="text/css" media="(min-width: 600px)" />
-      </pre>
+<p>The biggest technical challenge was getting the video footage used on the first slide to not grind the site to a hault while it loads in which was accomplished by fine-tuning the resolution with a tool called <a href="https://www.ffmpeg.org/">FFmpeg</a> which lets you adjust every little detail of the video format... but it's used via command line so the usability leaves something to be desired...</p>

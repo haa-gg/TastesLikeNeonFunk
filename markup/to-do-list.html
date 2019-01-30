@@ -1,14 +1,9 @@
-<h1>The To-Do List!</h1>
-
 <h2>What’s it?</h2>
 <p>It’s a device I made/ programmed to display what movies I need to check out, chores I’m neglecting, what side projects I’ve ginnned up to keep myself entertained.</p>
-
 <h2>Wanna see it running?</h2>
 <p><a href="https://haa-gg.github.io/To-Do-List/" target="_blank">Of course you do!</a></p>
-
 <h2>Uh why?</h2>
 <p>Glen you fiendishly handsome devil, why do you need something like this? Well my flattering reader I do occasionally find myself watching a season of Rick & Morty that I’ve seen so many times I could probably rattle off the lines easier than the pledge of allegiance while guiltily thinking “aren’t there about a million things I want to check out right now, why can’t I remember a single one of them?”. I built this machine to stop myself from aimlessly slouching around on the couch… and because it looks super fly in my living room.</p>
-
 <h2>How’s it work (without mentioning a lick of actual code)?</h2>
 <p>Finer details can be found <a href="https://github.com/haa-gg/To-Do-List/blob/master/custom.js" target="_blank">here in the repo</a></p>
 <ol>
@@ -17,44 +12,24 @@
   <li>Another part of the code spits out the spreadsheet data as a neat little website</li>
   <li>Rinse and repeat every 15 minutes</li>
 </ol>
-
 <h2>Heavy-duty design or coding details</h2>
-
 <p>Hidden by default because it looks like the Epic of Gilgamesh when I lay it all out at once but I know some people really dig this kind of info and I don't want to disappolin them.</p>
-
-<ul class="accordion" data-accordion>
-  <li class="accordion-item is-active" data-accordion-item>
-    <a href="#" class="accordion-title"><h2>Look n’ feel</h2></a>
-    <div class="accordion-content" data-tab-content>
-      
+    <h2>Look n’ feel</h2>
+    
 <p>This is my testing ground for interesting layouts, new font usage, and seeing if I can make certain colors work together so the overall theme is “whatever looks cool”. If you refresh the list, a new theme will pop up. At the point in time I’m writing this, there are 3 different themes it cycles through on refresh.</p>
-
 <h3>Case design</h3>
 <p>That’s a hand-drawn, laser engraved chunk of wood covering the front so buckle up kiddo, it’s a bit of a story.</p>
-
 <h4>Why “Calling You Home”?</h4>
 <p>So my brother and I were chilling out (possibly watching Rick & Morty again) and he remarked that my house had good vibes out the yin-yang… well what he actually said was that my house felt like a song by Seven Lions titled “Calling You Home” which he played for me and lemme tell ya, having the apartment I’ve put together compared to that song was one of the highest compliments I’ve ever been given.</p>
-
 <p>After hearing it, I knew I would have to work that song into my home somewhere and being that I was already fixated on building a cool case for my motivational gizmo, I had a good idea of where it would end up.  The only question left was how to make something which felt like that song and the case design you see is my answer.</p>
-
 <h4>Laser engraving</h4>
 <p>Did the engraving myself, I totally went out and got trained on how to work a big ol’ laser at a maker space called <a href="http://www.tcmaker.org/blog/">TC Maker</a> (shout out!) in the twin cities.</p>
-    </div>
-  </li>
-
-  <li class="accordion-item" data-accordion-item>
-    <a href="#" class="accordion-title">Accordion 1</a>
-    <div class="accordion-content" data-tab-content>
+   
      <h2>How’d I code this beast?</h2>
-
 <p>The easiest way to explain is to <a href="https://github.com/haa-gg/To-Do-List/" target="_blank">check out the repo</a>, in specific <a href="https://github.com/haa-gg/To-Do-List/blob/master/custom.js" target="_blank">this file is where the party's at</a>.</p>
-
 <p>The code work was probably the easiest part of this project as most of what I consider the tricky stuff was grabbed from an earlier project of mine so most of the focus was on making the code as easy to read as possible so the main custom.js file is TRICKED OUT with comments on what each line is doing.</p>
-
 <h3>Walk me through the steps, this time nerd it up!</h3>
-
 <p>You asked for it...</p>
-
 <ol>
   <li>Make call to Sheets API</li>
   <li>Wipe out any pre-existing cards</li>
@@ -66,16 +41,12 @@
   <li>Remove old theme class</li>
   <li>Apply new theme class</li>
 </ol>
-
 <h3>Does clicking a link to see the repo seem exhausing?</h3>
-
 <p>Gotcha covered, fam!</p>
-
 <pre class="theme:github lang:default decode:true " >  
   
 //Wrap everything in a function because... well them's the rules!
 function glenToDo() {
-
   //Make a call to the mighty Google Sheets API and pray for a response
   /*The way this call works is really cool! You can check out the details of what each bit of the URL-thing below is doing at: https://developers.google.com/sheets/api/guides/concepts 
   Sidenote: if you copy + paste the URL below into your browser you can see the array in a totally useless but kinda interesting way (no viruses, pinky swear!)*/
@@ -83,28 +54,21 @@ function glenToDo() {
   
   //Reset card values on each run of the function
   $('.card').remove();
-
     //Response granted, no need to light any more incense!
     /*Got the whole JSON object from the API call in a single variable called 'json'. Below we are setting up some ground rules for what I'll be keen to know about going forward, in specific I'll be needing to know how many rows are in the sheet which I get from json.values.length so I hook that value to the variable 'y' */
     for (var x = 0, y = json.values.length; x < y; x++) {
-
       //Now we iterate things based on the idea we should do something based on the number of rows
       for (var i = 0; i < y; i++) {
-
         /*Below we are setting one array "coordinate" to change each time we run this little loop (variable i is saying switch which sub-array is being looked at ever iteration but always look at the same value within the new sub-array), and another that swaps each time we do a larger loop rotation (variable x is saying to look at a new value within each sub-array we cycle through)*/
         var valList = json.values[i][x];
-
         //Loop the JSON values till you run out of stuff to spit out but don't add any HTML if you're just adding blank HTML elements
         if (valList != '' && valList != null && valList != ' ') {
-
           //On first loop iteration, make a new card with an unordered list in it
           if (i == 1) {
             $('.card-columns').append('<div class="card '+ valList +'"><ul></ul></div>');
-
             //Make the first value an H2 header
             $('.card:last-of-type ul').append('<h2>' + valList + '</h2>');
           } else {
-
             //Make all values other than the first in a column basic list objects
             $('.card:last-of-type ul').append('<li>' + valList + '</li>');
           }
@@ -113,43 +77,28 @@ function glenToDo() {
     }
   });
 }
-
 //Equivalent to hitting the play button on my big ol' music box!
 glenToDo();
-
 //Refresh the page every 15 minutes
 setInterval(glenToDo, 900*1000);
-
 //Just one look n' feel is SO LAME-- this segment gives our script a sudden urge to switch it up once every 8 hours
 function skinToggle(){
-
 //Nix the old class running the show before assuming our fresh new look
   $("body").removeClass();
-
 //A cleverly named variable array that alludes to the array position right in the name of each variable
 var classes = ["one", "two", "four"];
-
 //Literally saying each object defined as a body will have this function performed on it, probably not an idea statement but it does the trick
     $("body").each(function(){
-
       //Finally the good bit where we pick a class at random from our array and stick it on the body object(s)
         $(this).addClass(classes[~~(Math.random()*classes.length)]);
     });
     
 }
-
 //Trigger function on main script load
 skinToggle();
-
 //Every 8 hours switch look n' feel
 setInterval(skinToggle, 288*10000); 
-
 </pre> 
-
-    </div>
-  </li>
-
-</ul>
-
+  
 <h2>TL;DR</h2>
 <p>I made a super techy and slick looking to-do list</p>

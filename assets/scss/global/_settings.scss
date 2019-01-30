@@ -55,7 +55,7 @@ $foundation-palette: (
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
-);
+); 
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
@@ -75,6 +75,31 @@ $global-flexbox: false;
 $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
+
+ .background-gradient{ 
+background: linear-gradient(270deg, #22ccff, #2a20f7, #6349ff, #e95fff, #ffb526, #ffe200);
+background-size: 1200% 1200%;
+
+-webkit-animation: gradient-animate 26s ease infinite;
+-moz-animation: gradient-animate 26s ease infinite;
+animation: gradient-animate 26s ease infinite;
+
+@-webkit-keyframes gradient-animate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient-animate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradient-animate { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+}
 
 // 2. Breakpoints
 // --------------
