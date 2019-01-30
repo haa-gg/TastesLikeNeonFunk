@@ -66,7 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="column small-12">
 
-<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo.png" class="logo" alt="Glendon Gengel's Design and Development Work">
+<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/logo2.png" class="logo" alt="Glendon Gengel's Design and Development Work">
 
 </div>
 

@@ -141,9 +141,10 @@ body{
 }
 
 .logo{
-    width:75%;
+    width:45%;
     margin:0 auto;
     @include mui-animation(fade(in));
+    padding-bottom:80px;
     animation-duration: 1s;
     z-index:1;
   }
@@ -175,6 +176,7 @@ Content Tablet Styles
   width:70%;
   margin:0 auto;
   height:auto;
+  padding-bottom:30px;
 }
 
 .destination{

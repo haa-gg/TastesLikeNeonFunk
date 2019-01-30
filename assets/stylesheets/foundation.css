@@ -8005,10 +8005,11 @@ Content Desktop Styles
   .destination .column, .destination .columns {
     padding: .9rem; }
   .logo {
-    width: 75%;
+    width: 45%;
     margin: 0 auto;
     -webkit-animation-name: fade-0-to-100;
             animation-name: fade-0-to-100;
+    padding-bottom: 80px;
     -webkit-animation-duration: 1s;
             animation-duration: 1s;
     z-index: 1; }
@@ -8040,7 +8041,8 @@ Content Tablet Styles
   .logo {
     width: 70%;
     margin: 0 auto;
-    height: auto; }
+    height: auto;
+    padding-bottom: 30px; }
   .destination .spec-wrap {
     margin: 1rem 0; }
   .fp-intro {
